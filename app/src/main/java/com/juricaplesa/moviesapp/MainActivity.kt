@@ -11,11 +11,31 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.lifecycleScope
+import com.juricaplesa.movies_domain.MoviesRepository
 import com.juricaplesa.moviesapp.ui.theme.MoviesAppTheme
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    lateinit var repository: MoviesRepository
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        lifecycleScope.launch {
+            repository.getGenres()
+                .onSuccess {
+                    val test = ""
+                }
+                .onFailure {
+                    val test = ""
+                }
+        }
         enableEdgeToEdge()
         setContent {
             MoviesAppTheme {
