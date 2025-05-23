@@ -26,7 +26,7 @@ fun NavGraphBuilder.moviesGraph(
                     ?: -1
             MoviesListScreen(
                 filterId = filterId,
-                onNavigateToFilter = { navController.navigate(Route.MOVIES_FILTER + "/8") }
+                onNavigateToFilter = { navController.navigate(Route.MOVIES_FILTER + "/$filterId") }
             )
         }
 
@@ -35,7 +35,6 @@ fun NavGraphBuilder.moviesGraph(
             arguments = listOf(
                 navArgument(Arguments.FILTER) {
                     type = NavType.IntType
-                    nullable = true
                 }
             )
         ) {
