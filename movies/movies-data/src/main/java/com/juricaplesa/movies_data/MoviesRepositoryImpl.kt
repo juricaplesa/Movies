@@ -2,12 +2,20 @@ package com.juricaplesa.movies_data
 
 import com.juricaplesa.movies_data.remote.MoviesRemoteDataSource
 import com.juricaplesa.movies_domain.MoviesRepository
+import com.juricaplesa.movies_domain.model.Movie
 import com.juricaplesa.movies_domain.model.MovieGenre
 import javax.inject.Inject
 
 class MoviesRepositoryImpl @Inject constructor(
     private val moviesRemoteDataSource: MoviesRemoteDataSource
 ) : MoviesRepository {
+    override suspend fun getMovies(genreId: Int): Result<List<Movie>> {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun requestMoviesNextPage(): Result<Unit> {
+        TODO("Not yet implemented")
+    }
 
     override suspend fun getGenres(): Result<List<MovieGenre>> {
         lateinit var genres: List<MovieGenre>
