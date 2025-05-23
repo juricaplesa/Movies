@@ -30,16 +30,6 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        lifecycleScope.launch {
-            repository.getGenres()
-                .onSuccess {
-                    val test = ""
-                }
-                .onFailure {
-                    val test = ""
-                }
-        }
         enableEdgeToEdge()
         setContent {
             val navController = rememberNavController()
